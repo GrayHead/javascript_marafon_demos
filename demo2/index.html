@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+
+
+        <script>
+
+
+			let feedbacks = [
+				{id: 1, title: 'Olya', link: 'https://www.youtube.com/embed/B9WjISolZWE', status: true},
+				{id: 2, title: 'Daria', link: 'https://www.youtube.com/embed/L87sHa3KW3E', status: true},
+				{id: 3, title: 'Bohdan', link: 'https://www.youtube.com/embed/JBdtaRMTBA4', status: true},
+				{id: 4, title: 'Anna', link: 'https://www.youtube.com/embed/SUUKIvxkOIE', status: true},
+				{id: 5, title: 'Orest', link: 'https://www.youtube.com/embed/KFUV9W9oBJg', status: true},
+				{id: 6, title: 'Taras', link: 'https://www.youtube.com/embed/VS_T8g4_xTo', status: true},
+				{id: 7, title: 'Pavlo', link: 'https://www.youtube.com/embed/k8IIZJlRZ74', status: true},
+			];
+
+
+			for (let fb of feedbacks) {
+				document.write(
+					`
+                    <div>
+                        <h2>${fb.title}</h2>
+
+                      <iframe width="560" height="315" src="${fb.link}" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    `
+				);
+
+			}
+
+
+        </script>
+    </body>
+</html>
