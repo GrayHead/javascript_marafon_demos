@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+
+        <h1 id="fullname"></h1>
+
+        <input id="name">
+        <input id="surname">
+        <input id="age">
+
+        <button id="btn">print</button>
+        <script>
+
+
+			let name = document.getElementById('name');
+			let surname = document.getElementById('surname');
+			let age = document.getElementById('age');
+			let btn = document.getElementById('btn');
+			btn.addEventListener('click', function () {
+
+				let fullnameValue = `${name.value}  ${surname.value}  ${age.value}`;
+				console.log(fullnameValue);
+
+				let h1 = document.getElementById('fullname');
+				h1.innerText = fullnameValue;
+
+			});
+
+
+        </script>
+    </body>
+</html>

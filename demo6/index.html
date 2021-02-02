@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1 id="head1"></h1>
+
+        <input id="foo" type="text" value="asd!!!!">
+
+        <script>
+			let h1 = document.getElementById('head1');
+			let input = document.getElementById('foo');
+			input.addEventListener('input', function () {
+				h1.innerText = input.value;
+				h1.style.background = input.value;
+			});
+
+
+        </script>
+    </body>
+</html>

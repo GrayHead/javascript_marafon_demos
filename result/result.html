@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            body {
+                background: silver;
+            }
+        </style>
+    </head>
+    <body>
+        <input id="title">
+        <button id="save">save</button>
+
+        <div id="target"></div>
+
+
+        <script>
+
+
+			if (!(!!localStorage.getItem('products'))) {
+				localStorage.setItem('products', JSON.stringify([]));
+			}
+
+			function render() {
+				let parseItems = JSON.parse(localStorage.getItem('products'));
+				let target = document.getElementById('target');
+				target.innerText = '';
+				for (const item of parseItems) {
+					let div = document.createElement('div');
+					div.innerText = item.title;
+					let delBtn = document.createElement('button');
+					delBtn.innerText = 'del';
+					div.appendChild(delBtn);
+					delBtn.addEventListener('click', function () {
+						let result = parseItems.filter(function (product) {
+							return product.id !== item.id;
+						});
+						localStorage.setItem('products', JSON.stringify(result));
+						location.reload();
+					});
+					target.appendChild(div);
+				}
+			}
+
+			render();
+			let saveBtn = document.getElementById('save');
+			saveBtn.addEventListener('click', function () {
+				let input = document.getElementById('title');
+				let product = {
+					id: new Date().getTime(),
+					title: input.value
+				};
+				let productsList = JSON.parse(localStorage.getItem('products'));
+				productsList.push(product);
+				localStorage.setItem('products', JSON.stringify(productsList));
+				render();
+				input.value = '';
+			});
+
+
+        </script>
+
+    </body>
+</html>
